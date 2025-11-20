@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dissonanz der Macht – Digitales Programmheft</title>
+
+  <style>
+    :root {
+      --accent: #C69B44;
+      --bg: #ffffff;
+      --text: #222222;
+      --muted: #555555;
+      --max-width: 960px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* TITELBEREICH */
+    header.hero {
+      background: var(--accent);
+      color: #111;
+      padding: 2.2rem 0;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 0 0 0.3rem 0;
+      text-align: left;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 3.5vw, 1.25rem);
+      font-weight: 500;
+      margin: 0;
+      text-align: left;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem;
+    }
+
+    section { margin-bottom: 2.5rem; }
+
+    /* Intro */
+    .intro-blocks {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    .intro-block h2 {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .intro-block p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* TIMELINE */
+    .timeline-section h2 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .timeline-time-block {
+      min-width: 90px;
+      background: var(--accent);
+      border-radius: 999px;
+      padding: 0.6rem 0.9rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .timeline-time {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .timeline-right {
+      display: grid;
+      grid-template-columns: minmax(30px, 1fr) auto;
+      align-items: center;
+      column-gap: 0.75rem;
+    }
+
+    .timeline-line {
+      height: 1px;
+      background: rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .timeline-line::after {
+      content: "";
+      position: absolute;
+      right: -3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-content { text-align: right; }
+
+    .timeline-hall {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-title {
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+      font-weight: 500;
+    }
+
+    .timeline-button {
+      display: inline-block;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      background: transparent;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    }
+
+    .timeline-button:hover {
+      background: var(--accent);
+      color: #111;
+      transform: translateY(-1px);
+    }
+
+    /* PROGRAMM ABSCHNITTE */
+    .program-section {
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .back-to-timeline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      margin-bottom: 1.2rem;
+    }
+
+    .back-to-timeline .icon { font-size: 1.1rem; }
+
+    /* Raumtitel-Balken */
+    .hall-banner {
+      width: 100%;
+      background: var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 0 0 1.6rem 0;
+      border-radius: 6px;
+    }
+
+    .hall-name {
+      margin: 0;
+      padding: 0;
+      color: #111;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    .program-intro {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .program-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .work {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+    }
+
+    .composer {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .work-title {
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+
+    .movements {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 0.35rem;
+    }
+
+    .performers {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      opacity: 0.8;
+    }
+
+    @media (min-width: 768px) {
+      main { padding-inline: 2rem; }
+    }
+
+    /* ANIMATIONEN – nur, wenn body.loaded gesetzt ist */
+
+    @keyframes timelineIn {
+      from { opacity: 0; transform: translateX(-16px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes lineGrow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    body.loaded .timeline-item {
+      animation: timelineIn 0.5s ease-out both;
+    }
+
+    /* leichte Staffelung */
+    body.loaded .timeline-item:nth-child(1) { animation-delay: 0.05s; }
+    body.loaded .timeline-item:nth-child(2) { animation-delay: 0.10s; }
+    body.loaded .timeline-item:nth-child(3) { animation-delay: 0.15s; }
+    body.loaded .timeline-item:nth-child(4) { animation-delay: 0.20s; }
+    body.loaded .timeline-item:nth-child(5) { animation-delay: 0.25s; }
+    body.loaded .timeline-item:nth-child(6) { animation-delay: 0.30s; }
+    body.loaded .timeline-item:nth-child(7) { animation-delay: 0.35s; }
+    body.loaded .timeline-item:nth-child(8) { animation-delay: 0.40s; }
+    body.loaded .timeline-item:nth-child(9) { animation-delay: 0.45s; }
+    body.loaded .timeline-item:nth-child(10) { animation-delay: 0.50s; }
+    body.loaded .timeline-item:nth-child(11) { animation-delay: 0.55s; }
+    body.loaded .timeline-item:nth-child(12) { animation-delay: 0.60s; }
+    body.loaded .timeline-item:nth-child(13) { animation-delay: 0.65s; }
+    body.loaded .timeline-item:nth-child(14) { animation-delay: 0.70s; }
+
+    body.loaded .timeline-line {
+      transform-origin: left center;
+      animation: lineGrow 0.5s ease-out forwards;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <h1 class="hero-title">Dissonanz der Macht</h1>
+    <p class="hero-subtitle">Der Schostakowitsch-Abend an der HfMT</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- INTRO -->
+  <section>
+    <div class="intro-blocks">
+      <article class="intro-block">
+        <h2>Grußwort</h2>
+        <p>Platzhaltertext für Grußwort …</p>
+      </article>
+
+      <article class="intro-block">
+        <h2>Konzept</h2>
+        <p>Platzhaltertext für Konzept …</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section" id="timeline">
+    <h2>Programmübersicht</h2>
+
+    <div class="timeline">
+
+      <!-- 16:30 Mendelssohn-Saal -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">16:30</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Mendelssohn-Saal</div>
+            <div class="timeline-title">Programmblock 16:30</div>
+            <a class="timeline-button" href="#programm-1630-mendelssohn">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 17:15 Orchesterstudio -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">17:15</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Orchesterstudio</div>
+            <div class="timeline-title">Programmblock 17:15</div>
+            <a class="timeline-button" href="#programm-1715-orchesterstudio">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 18:00 Forum -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">18:00</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Forum</div>
+            <div class="timeline-title">Programmblock 18:00</div>
+            <a class="timeline-button" href="#programm-1800-forum">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 19:15 Mendelssohn-Saal -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">19:15</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Mendelssohn-Saal</div>
+            <div class="timeline-title">Programmblock 19:15 (Mendelssohn-Saal)</div>
+            <a class="timeline-button" href="#programm-1915-mendelssohn">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 19:15 Orchesterstudio -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">19:15</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Orchesterstudio</div>
+            <div class="timeline-title">Programmblock 19:15 (Orchesterstudio)</div>
+            <a class="timeline-button" href="#programm-1915-orchesterstudio">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 20:15 Forum -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">20:15</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Forum</div>
+            <div class="timeline-title">Programmblock 20:15</div>
+            <a class="timeline-button" href="#programm-2015-forum">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 20:45 Orchesterstudio -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">20:45</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Orchesterstudio</div>
+            <div class="timeline-title">Programmblock 20:45</div>
+            <a class="timeline-button" href="#programm-2045-orchesterstudio">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 21:00 Fanny-Hensel-Saal -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">21:00</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Fanny-Hensel-Saal</div>
+            <div class="timeline-title">Programmblock 21:00</div>
+            <a class="timeline-button" href="#programm-2100-fanny">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 21:45 Forum -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">21:45</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Forum</div>
+            <div class="timeline-title">Programmblock 21:45</div>
+            <a class="timeline-button" href="#programm-2145-forum">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 22:15 Forum -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">22:15</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Forum</div>
+            <div class="timeline-title">Programmblock 22:15</div>
+            <a class="timeline-button" href="#programm-2215-forum">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 22:30 Mendelssohn-Saal -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">22:30</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Mendelssohn-Saal</div>
+            <div class="timeline-title">Programmblock 22:30</div>
+            <a class="timeline-button" href="#programm-2230-mendelssohn">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 23:00 Orchesterstudio -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">23:00</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Orchesterstudio</div>
+            <div class="timeline-title">Programmblock 23:00</div>
+            <a class="timeline-button" href="#programm-2300-orchesterstudio">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 23:45 Forum -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">23:45</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Forum</div>
+            <div class="timeline-title">Programmblock 23:45 (Forum)</div>
+            <a class="timeline-button" href="#programm-2345-forum">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 23:45 Orchesterstudio -->
+      <article class="timeline-item">
+        <div class="timeline-time-block">
+          <div class="timeline-time">23:45</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-hall">Orchesterstudio</div>
+            <div class="timeline-title">Programmblock 23:45 (Orchesterstudio)</div>
+            <a class="timeline-button" href="#programm-2345-orchesterstudio">Zum Programm</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PROGRAMMSEITEN -->
+
+  <!-- 16:30 Mendelssohn-Saal -->
+  <section class="program-section" id="programm-1630-mendelssohn">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Mendelssohn-Saal · 16:30</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für den Programmblock um 16:30 im Mendelssohn-Saal … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Werktitel, op. X</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Interpret*innen (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 17:15 Orchesterstudio -->
+  <section class="program-section" id="programm-1715-orchesterstudio">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Orchesterstudio · 17:15</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für das Orchesterstudio um 17:15 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Kammermusikwerk, op. X</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Ensemble (Platzhalter)</div>
+      </li>
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Werktitel, op. Y</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Interpret*innen (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 18:00 Forum -->
+  <section class="program-section" id="programm-1800-forum">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Forum · 18:00</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für das Forum um 18:00 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Dmitri Schostakowitsch</div>
+        <div class="work-title">Klavierkonzert Nr. 1 c-Moll, op. 35</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Solist*in & Orchester (Platzhalter)</div>
+      </li>
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Werktitel, op. Z</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Interpret*innen (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 19:15 Mendelssohn-Saal -->
+  <section class="program-section" id="programm-1915-mendelssohn">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Mendelssohn-Saal · 19:15</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für den Programmblock um 19:15 im Mendelssohn-Saal … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Dmitri Schostakowitsch</div>
+        <div class="work-title">Streichquartett Nr. 8 c-Moll, op. 110</div>
+        <div class="movements">Largo – Allegro molto – Allegretto – Largo – Largo</div>
+        <div class="performers">Quartett (Platzhalter)</div>
+      </li>
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Werktitel, op. X</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Interpret*innen (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 19:15 Orchesterstudio -->
+  <section class="program-section" id="programm-1915-orchesterstudio">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Orchesterstudio · 19:15</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für das Orchesterstudio um 19:15 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Werktitel, op. A</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Interpret*innen (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 20:15 Forum -->
+  <section class="program-section" id="programm-2015-forum">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Forum · 20:15</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für das Forum um 20:15 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Sinfonischer Satz, op. B</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Orchester (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 20:45 Orchesterstudio -->
+  <section class="program-section" id="programm-2045-orchesterstudio">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Orchesterstudio · 20:45</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für das Orchesterstudio um 20:45 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Kammermusik, op. C</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Ensemble (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 21:00 Fanny-Hensel-Saal -->
+  <section class="program-section" id="programm-2100-fanny">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Fanny-Hensel-Saal · 21:00</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für den Fanny-Hensel-Saal um 21:00 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Soloprogramm, op. D</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Solist*in (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 21:45 Forum -->
+  <section class="program-section" id="programm-2145-forum">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Forum · 21:45</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für das Forum um 21:45 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Werktitel, op. E</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Interpret*innen (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 22:15 Forum -->
+  <section class="program-section" id="programm-2215-forum">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Forum · 22:15</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für das Forum um 22:15 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Werktitel, op. F</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Interpret*innen (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 22:30 Mendelssohn-Saal -->
+  <section class="program-section" id="programm-2230-mendelssohn">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Mendelssohn-Saal · 22:30</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für den Mendelssohn-Saal um 22:30 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Werktitel, op. G</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Interpret*innen (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 23:00 Orchesterstudio -->
+  <section class="program-section" id="programm-2300-orchesterstudio">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Orchesterstudio · 23:00</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für das Orchesterstudio um 23:00 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Werktitel, op. H</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Interpret*innen (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 23:45 Forum -->
+  <section class="program-section" id="programm-2345-forum">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Forum · 23:45</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für das Forum um 23:45 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Werktitel, op. I</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Interpret*innen (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 23:45 Orchesterstudio -->
+  <section class="program-section" id="programm-2345-orchesterstudio">
+    <a href="#timeline" class="back-to-timeline">
+      <span class="icon">←</span> Zurück zur Timeline
+    </a>
+    <div class="hall-banner">
+      <h2 class="hall-name">Orchesterstudio · 23:45</h2>
+    </div>
+    <p class="program-intro">
+      Einführungstext für das Orchesterstudio um 23:45 … (Platzhalter)
+    </p>
+    <ul class="program-list">
+      <li class="work">
+        <div class="composer">Komponist*in (Platzhalter)</div>
+        <div class="work-title">Werktitel, op. J</div>
+        <div class="movements">Allegro – Andante – Finale</div>
+        <div class="performers">Interpret*innen (Platzhalter)</div>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  Dissonanz der Macht · Digitales Programmheft – HfMT Hamburg
+</footer>
+
+<script>
+  // Animation beim Laden und nach "Zurück zur Timeline"
+  document.addEventListener("DOMContentLoaded", function () {
+    // Beim ersten Laden
+    document.body.classList.add("loaded");
+
+    // Wenn man auf "Zurück zur Timeline" klickt, Animation neu starten
+    document.querySelectorAll(".back-to-timeline").forEach(link => {
+      link.addEventListener("click", function () {
+        document.body.classList.remove("loaded");
+        setTimeout(() => {
+          document.body.classList.add("loaded");
+        }, 20);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
