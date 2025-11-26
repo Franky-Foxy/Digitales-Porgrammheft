@@ -64,7 +64,14 @@
 
     section { margin-bottom: 2.5rem; }
 
-    /* Intro */
+    /* INTRO-BEREICH (nur Text) */
+
+    .intro-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
     .intro-blocks {
       display: grid;
       gap: 1.75rem;
@@ -96,7 +103,7 @@
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 1.8rem; /* mehr Platz zwischen den Zeiten */
+      gap: 1.8rem;
     }
 
     .timeline-item {
@@ -362,8 +369,8 @@
 
 <main>
 
-  <!-- INTRO -->
-  <section>
+  <!-- INTRO NUR TEXT -->
+  <section class="intro-section">
     <div class="intro-blocks">
       <article class="intro-block">
         <h2>Grußwort</h2>
@@ -442,7 +449,7 @@
         <div class="timeline-right">
           <div class="timeline-line"></div>
           <div class="timeline-label">
-            MENDELSSOHN-SAAL:<span class="title">Zeitende</span>
+            MENDELSSOHN-SAAL:<span class="title">ZeitEnde</span>
           </div>
           <a class="timeline-button" href="#programm-1915-mendelssohn">Zum Programm</a>
         </div>
@@ -634,7 +641,7 @@
           Allegro
         </div>
         <div class="performers">
-          Young ClassX<br>
+          The Young ClassX: MJO (Felix Mendelssohn Jugendorchester)<br>
           Clemens Malich – Dirigent<br>
           Stepan Simonian – Klavier
         </div>
@@ -647,7 +654,7 @@
           Largo · Allegro molto
         </div>
         <div class="performers">
-          Young ClassX<br>
+          The Young ClassX: MJO (Felix Mendelssohn Jugendorchester)<br>
           Clemens Malich – Dirigent
         </div>
       </li>
@@ -670,17 +677,23 @@
     </ul>
   </section>
 
-  <!-- 19:15 Mendelssohn-Saal – Zeitende -->
+  <!-- 19:15 Mendelssohn-Saal – ZeitEnde -->
   <section class="program-section" id="programm-1915-mendelssohn">
     <a href="#timeline" class="back-to-timeline">
       <span class="icon">←</span> Zurück zur Timeline
     </a>
     <p class="program-time">Zeit: 19:15 – 20:00</p>
     <div class="hall-banner">
-      <h2 class="hall-name">Mendelssohn-Saal · 19:15 · Zeitende</h2>
+      <h2 class="hall-name">Mendelssohn-Saal · 19:15 · ZeitEnde</h2>
     </div>
     <p class="program-intro">
-      Messiaen komponierte das Quartett 1940/41 im Kriegsgefangenenlager Stalag VIII A. Die Uraufführung fand im Lager statt – mit improvisierten Instrumenten und gefrorenen Fingern. Der Text aus der Apokalypse verweist auf die Überwindung der Zeit. Während Europa im Krieg versank, entwarf Messiaen ein Werk radikalen Trosts, geprägt von religiöser Innerlichkeit, synästhetischer Farbvorstellung und einem stillen Widerstand gegen die Gewalt der Epoche.
+      Messiaen komponierte das Quartett 1940/41 im Kriegsgefangenenlager Stalag VIII A; die Uraufführung fand dort statt, mit improvisierten Instrumenten und erfrorenen Fingern. Der Text aus der Apokalypse spricht von der Überwindung der Zeit – ein Gedanke, der in einem Europa, das im Krieg versank, wie ein leiser, unbeirrbarer Widerstand wirkte.
+    </p>
+    <p class="program-intro">
+      Die Entscheidung, dieses Werk neben das Klavierquintett von Schostakowitsch zu stellen, entstand aus dem Wunsch, zwei Meilensteine der Klavierkammermusik miteinander in Resonanz zu bringen. Beide entstanden fast gleichzeitig, von nahezu gleichaltrigen Komponisten – Schostakowitsch 1906 geboren, Messiaen 1908 – und doch unter radikal verschiedenen Bedingungen. Während Messiaen in Gefangenschaft schrieb, arbeitete Schostakowitsch im Schatten der persönlichen Schikane durch Stalin, der Hetze in der Presse und einer realen Bedrohung seines Lebens, von der er sich erst allmählich erholte. Beide Länder befanden sich im Krieg, Frankreich innerlich zerrissen, Russland 1941 noch unter dem deutsch-sowjetischen Nichtangriffspakt.
+    </p>
+    <p class="program-intro">
+      Gerade diese Konstellation macht die Gegenüberstellung so anziehend: Zwei Musiker, gefangen in der Härte ihrer Zeit, finden zu Ausdrucksformen, die unterschiedlicher kaum sein könnten – und doch denselben Wunsch teilen, das Menschliche im Klang zu bewahren.
     </p>
     <ul class="program-list">
       <li class="work">
@@ -723,12 +736,12 @@
         <div class="composer">Dmitri Schostakowitsch</div>
         <div class="work-title">24 Präludien und Fugen, op. 87</div>
         <div class="movements">
-          C-Dur – Theodor Pazov<br>
+          C-Dur – Teodor Pazov<br>
           a-Moll – Maximilian Müller<br>
           G-Dur – Maximilian Müller<br>
           e-Moll – Daria Podushko<br>
           D-Dur – Chengcheng Zhang<br>
-          h-Moll – Theodor Pazov<br>
+          h-Moll – Teodor Pazov<br>
           A-Dur – Roko Matijević<br>
           fis-Moll – Joanna Sielicka<br>
           E-Dur – Fabio Paez<br>
@@ -762,7 +775,13 @@
       <h2 class="hall-name">Forum · 20:15 · Präludien</h2>
     </div>
     <p class="program-intro">
-      Die 1933 entstandenen Präludien op. 34 markieren eine Phase rhythmischer Leichtigkeit und experimenteller Kürze. Zahlreiche Widmungen an befreundete Musiker skizzieren ein persönliches Netzwerk in politisch schwierigen Zeiten. Obwohl die Kulturpolitik bereits unter stalinistische Kontrolle geriet, befand sie sich noch in der Formierungsphase, was den Werken eine gewisse Freiheit und Verspieltheit erlaubt.
+      Die 1933 entstandenen Präludien op. 34 markieren eine Phase spielerischer Freiheit: kurze, pointierte Stücke, in denen Schostakowitsch rhythmisch leicht, experimentierfreudig und mit hörbarem Witz arbeitet. Zahlreiche Widmungen an befreundete Musiker zeichnen das Bild eines lebendigen Netzwerks in einer Zeit, in der die Kulturpolitik zwar bereits unter stalinistische Kontrolle geriet, sich jedoch noch im Übergang befand.
+    </p>
+    <p class="program-intro">
+      Gemeinsam mit der Cellosonate op. 40 gehören die Präludien zu den letzten Instrumentalwerken vor dem berüchtigten Zeitungsartikel „Chaos statt Musik“, der Schostakowitschs künstlerische Situation radikal veränderte. Danach wurde sein Stil spürbar konservativer; die provokante Freiheit dieser Stücke weicht später einer vorsichtigen Selbstzensur.
+    </p>
+    <p class="program-intro">
+      In diesem Konzert erscheinen die Präludien sowohl in ihrer ursprünglichen Klavierfassung als auch in einer Bearbeitung der Saxophonistin Asya Fateyeva. Dadurch entsteht ein reizvoller Dialog zwischen Original und Interpretation – ein Echo jener früheren Freiheit, das in andere Klangfarben übersetzt wird.
     </p>
     <ul class="program-list">
       <li class="work">
@@ -782,7 +801,7 @@
           H-Dur: Allegretto<br>
           gis-Moll: Allegro non troppo<br>
           Fis-Dur: Moderato<br>
-          Es-Moll: Adagio<br>
+          es-Moll: Adagio<br>
           Des-Dur: Allegretto<br>
           b-Moll: Andantino<br>
           As-Dur: Largo<br>
@@ -817,7 +836,10 @@
       <h2 class="hall-name">Fanny-Hensel-Saal · 21:00 · Leuchten</h2>
     </div>
     <p class="program-intro">
-      Die 1901 vollendete Cellosonate, dem Cellisten Anatoli Brandukow gewidmet, stammt aus Rachmaninows Erholungsphase nach einer schweren Depression. Sie markiert seinen erneuten schöpferischen Aufbruch. Gleichzeitig war Russland von sozialen Spannungen durchzogen, die wenige Jahre später in die Revolution von 1905 führten. Die Sonate verbindet lyrische Wärme mit kraftvoller Expressivität – ein Werk zwischen persönlicher Genesung und gesellschaftlicher Unruhe.
+      Die 1901 vollendete Cellosonate, dem Cellisten Anatoli Brandukow gewidmet, entstand in einer Phase persönlicher Erholung und markiert Rachmaninows erneuten schöpferischen Aufbruch. Für dieses Programm wurde sie gewählt, um eine Brücke zu dem Russland zu schlagen, in das Rachmaninow hineingeboren wurde – ein kulturelles Umfeld, das wenige Jahre später durch die Revolution unwiederbringlich zerbrach. Rachmaninow empfand diesen Umbruch als persönliche Katastrophe; nach seiner Emigration verstummte er für mehr als fünfzehn Jahre als Komponist.
+    </p>
+    <p class="program-intro">
+      Schostakowitsch hingegen war ein „Kind der Revolution“, geprägt von völlig anderen gesellschaftlichen Voraussetzungen. Gerade dieser Gegensatz – hier die Klangwelt eines untergehenden alten Russlands, dort die künstlerische Prägung in einem neuen, ideologisch bestimmten Staat – macht die Gegenüberstellung der beiden Komponisten in diesem Konzert so reizvoll und aufschlussreich.
     </p>
     <ul class="program-list">
       <li class="work">
@@ -965,7 +987,16 @@
       <h2 class="hall-name">Mendelssohn-Saal · 22:45 · Bewegend</h2>
     </div>
     <p class="program-intro">
-      Die Klaviersonate Nr. 1 von 1926 ist ein Dokument jugendlicher Radikalität: modernistisch, energiegeladen, kantig. In der frühen Sowjetunion war die Avantgarde noch möglich, bevor politische Vorgaben das Ausdrucksspektrum einengten. Die zweite Klaviersonate, 1943 entstanden und Viktor Scherbachow gewidmet, ist deutlich introspektiver: ein Werk der Kriegsjahre, geprägt von Verlust, Müdigkeit und ernster Konzentration. Die „Puppentänze“ der 1950er-Jahre entfalten humorvolle Miniaturen mit feiner Ironie unter kindlich anmutender Oberfläche. Das Concertino op. 94 von 1960, für zwei Klaviere geschrieben und häufig als Stück für den Sohn Maxim bezeichnet, zeigt einen transparenten, neoklassischen Ton und eine fast heitere Unbekümmertheit.
+      Die Klaviersonate Nr. 1 von 1926 ist ein Dokument jugendlicher Radikalität: modernistisch, energiegeladen, kantig. In der frühen Sowjetunion war die Avantgarde noch möglich, bevor politische Vorgaben das Ausdrucksspektrum einengten.
+    </p>
+    <p class="program-intro">
+      Die zweite Klaviersonate, 1943 entstanden, ist ein deutlich introspektiveres Werk: Musik der Kriegsjahre, durchzogen von Verlust, Müdigkeit und ernster Konzentration. Gewidmet ist sie dem Andenken an Leonid Nikolajew, Schostakowitschs Klavierprofessor am Leningrader Konservatorium – ein legendärer Pädagoge, zu dessen Schülerinnen und Schülern unter anderem Mariya Yudina und Vladimir Sofronitsky gehörten.
+    </p>
+    <p class="program-intro">
+      Die „Puppentänze“ der 1950er-Jahre entfalten humorvolle Miniaturen mit feiner Ironie unter kindlich anmutender Oberfläche.
+    </p>
+    <p class="program-intro">
+      Das Concertino op. 94 von 1953, für zwei Klaviere geschrieben und häufig als Stück für den Sohn Maxim bezeichnet, zeigt einen transparenten, neoklassischen Ton und eine fast heitere Unbekümmertheit.
     </p>
     <ul class="program-list">
       <li class="work">
