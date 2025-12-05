@@ -356,7 +356,7 @@
       }
     }
 
-    /* INFO-BUTTON & MODAL */
+    /* INFO-BUTTON */
 
     .artist-info-trigger {
       display: inline-flex;
@@ -379,12 +379,14 @@
       color: #111;
     }
 
+    /* MODAL */
+
     .artist-modal-backdrop {
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.45);
       display: none;
-      align-items: center;
+      align-items: flex-start; /* oben ausrichten */
       justify-content: center;
       padding: 1.5rem;
       z-index: 1000;
@@ -400,9 +402,13 @@
       max-width: 640px;
       width: 100%;
       border-radius: 10px;
-      padding: 1.6rem 1.8rem 1.5rem;
+      padding: 1.2rem 1.4rem 1.2rem;
       position: relative;
       box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+      margin-top: 3.5rem; /* etwas tiefer unter der Browserleiste */
+      max-height: calc(100vh - 5rem);
+      display: flex;
+      flex-direction: column;
     }
 
     .artist-modal-header {
@@ -410,41 +416,61 @@
       color: var(--accent);
       border-radius: 8px;
       padding: 0.6rem 0.9rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
     }
 
     .artist-modal-header h3 {
       margin: 0;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+    }
+
+    .artist-modal-close {
+      background: transparent;
+      border: none;
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .artist-modal-close:hover {
+      opacity: 0.8;
     }
 
     .artist-modal-body {
       color: #000000;
       font-size: 0.95rem;
       line-height: 1.7;
+      overflow-y: auto;
+      padding-right: 0.3rem;
+      flex: 1;
+      min-height: 0;
     }
 
     .artist-modal-body p {
       margin: 0 0 0.65rem 0;
     }
 
-    .artist-modal-close {
-      position: absolute;
-      top: 0.55rem;
-      right: 0.75rem;
-      background: transparent;
-      border: none;
-      font-size: 1.4rem;
-      line-height: 1;
-      cursor: pointer;
-      padding: 0.15rem;
-      color: #000;
-    }
+    @media (max-width: 600px) {
+      .artist-modal {
+        padding: 1rem 1rem 1rem;
+        margin-top: 3.2rem;
+      }
 
-    .artist-modal-close:hover {
-      opacity: 0.8;
+      .artist-modal-header h3 {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -996,7 +1022,7 @@
         <div class="composer">Sergei Rachmaninow</div>
         <div class="work-title">Sonate für Cello und Klavier g-Moll, op. 19</div>
         <div class="movements">
-          Lento Allegro moderato • Allegro scherzando • Andante • Allegro mosso
+          Lento Allegro moderato · Allegro scherzando · Andante · Allegro mosso
         </div>
         <div class="performers">
           <button class="artist-info-trigger" data-artist="clemens-malich" aria-label="Information zu Clemens Malich">i</button> Clemens Malich – Cello<br>
@@ -1242,9 +1268,9 @@
 <!-- MODAL -->
 <div class="artist-modal-backdrop" id="artist-modal" aria-hidden="true">
   <div class="artist-modal" role="dialog" aria-modal="true" aria-labelledby="artist-modal-title">
-    <button class="artist-modal-close" aria-label="Fenster schließen">×</button>
     <div class="artist-modal-header">
       <h3 id="artist-modal-title">Künstler*in</h3>
+      <button class="artist-modal-close" aria-label="Fenster schließen">×</button>
     </div>
     <div class="artist-modal-body" id="artist-modal-body">
       <!-- Inhalt via JavaScript -->
