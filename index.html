@@ -386,7 +386,7 @@
       inset: 0;
       background: rgba(0, 0, 0, 0.45);
       display: none;
-      align-items: flex-start; /* oben ausrichten */
+      align-items: flex-start;
       justify-content: center;
       padding: 1.5rem;
       z-index: 1000;
@@ -405,7 +405,7 @@
       padding: 1.2rem 1.4rem 1.2rem;
       position: relative;
       box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
-      margin-top: 3.5rem; /* etwas tiefer unter der Browserleiste */
+      margin-top: 3.5rem;
       max-height: calc(100vh - 5rem);
       display: flex;
       flex-direction: column;
@@ -857,7 +857,7 @@
           Roman Gerber – Klarinette<br>
           Soyoung Park – Violine<br>
           Benedikt Loos – Cello<br>
-          Antonio Di Dedda – Klavier
+          <button class="artist-info-trigger" data-artist="antonio-di-dedda" aria-label="Information zu Antonio Di Dedda">i</button> Antonio Di Dedda – Klavier
         </div>
       </li>
     </ul>
@@ -1042,21 +1042,23 @@
       <h2 class="hall-name">Forum · 21:20 · SonatenGeflecht</h2>
     </div>
     <p class="program-intro">
-      Die Violasonate op. 147 aus dem Jahr 1975 ist Schostakowitschs letzte vollendete Komposition. Sie ist seinem engen Freund Fjodor Druschinin gewidmet und entstand während schwerer Krankheit. Das Werk blickt hörbar zurück, sucht Nähe zum Spätstil Beethoven und entfaltet eine stille Resignation. In der politischen Stagnation der Breschnew-Ära wirkt die Sonate wie ein persönliches Abschiedsdokument. Die Violinsonate op. 134, 1968 für David Oistrach komponiert, zählt zu Schostakowitschs düstersten Spätwerken. Der politische Hintergrund – Prager Frühling, sowjetische Invasion und ein Klima tiefgreifender Verunsicherung – prägt die formale Strenge und die entrückte Ruhe des Finalsatzes. Die Cellosonate von 1934, Viktor Kubatzki gewidmet, entstand in einer frühen Phase des Stalinismus. Kulturelle Repressionen verschärften sich, doch der staatliche Druck war noch nicht vollständig erstarrt; das Werk bewahrt etwas von Schostakowitschs persönlicher Freiheit vor der kommenden ideologischen Enge.
+      Die Cellosonate von 1934, Viktor Kubatzki gewidmet, entstand in einer frühen Phase des Stalinismus. Kulturelle Repressionen verschärften sich, doch der staatliche Druck war noch nicht vollständig erstarrt; das Werk bewahrt etwas von Schostakowitschs persönlicher Freiheit vor der kommenden ideologischen Enge. Die Violinsonate op. 134, 1968 für David Oistrach komponiert, zählt zu Schostakowitschs düstersten Spätwerken. Der politische Hintergrund – Prager Frühling, sowjetische Invasion und ein Klima tiefgreifender Verunsicherung – prägt die formale Strenge und die entrückte Ruhe des Finalsatzes. Die Violasonate op. 147 aus dem Jahr 1975 schließlich ist Schostakowitschs letzte vollendete Komposition. Sie ist seinem engen Freund Fjodor Druschinin gewidmet und entstand während schwerer Krankheit – ein persönliches Abschiedsdokument in Zeiten politischer Stagnation der Breschnew-Ära.
     </p>
     <ul class="program-list">
+      <!-- NEUE REIHENFOLGE: zuerst op. 40 -->
       <li class="work">
         <div class="composer">Dmitri Schostakowitsch</div>
-        <div class="work-title">Sonate für Viola und Klavier, op. 147</div>
+        <div class="work-title">Sonate für Cello und Klavier, op. 40</div>
         <div class="movements">
-          Moderato · Allegretto · Adagio
+          Allegro non troppo · Allegro · Largo · Allegro
         </div>
         <div class="performers">
-          <button class="artist-info-trigger" data-artist="anna-kreetta-gribajcevic" aria-label="Information zu Anna Kreetta Gribajcevic">i</button> Anna Kreetta Gribajcevic – Bratsche<br>
+          <button class="artist-info-trigger" data-artist="sebastian-klinger" aria-label="Information zu Sebastian Klinger">i</button> Sebastian Klinger – Cello<br>
           <button class="artist-info-trigger" data-artist="aleksandar-madzar" aria-label="Information zu Aleksandar Madžar">i</button> Aleksandar Madžar – Klavier
         </div>
       </li>
 
+      <!-- op. 134 bleibt zweite Position -->
       <li class="work">
         <div class="composer">Dmitri Schostakowitsch</div>
         <div class="work-title">Sonate für Violine und Klavier, op. 134</div>
@@ -1069,14 +1071,15 @@
         </div>
       </li>
 
+      <!-- op. 147 jetzt zum Schluss -->
       <li class="work">
         <div class="composer">Dmitri Schostakowitsch</div>
-        <div class="work-title">Sonate für Cello und Klavier, op. 40</div>
+        <div class="work-title">Sonate für Viola und Klavier, op. 147</div>
         <div class="movements">
-          Allegro non troppo · Allegro · Largo · Allegro
+          Moderato · Allegretto · Adagio
         </div>
         <div class="performers">
-          <button class="artist-info-trigger" data-artist="sebastian-klinger" aria-label="Information zu Sebastian Klinger">i</button> Sebastian Klinger – Cello<br>
+          <button class="artist-info-trigger" data-artist="anna-kreetta-gribajcevic" aria-label="Information zu Anna Kreetta Gribajcevic">i</button> Anna Kreetta Gribajcevic – Bratsche<br>
           <button class="artist-info-trigger" data-artist="aleksandar-madzar" aria-label="Information zu Aleksandar Madžar">i</button> Aleksandar Madžar – Klavier
         </div>
       </li>
@@ -1617,6 +1620,29 @@
             Preisträgern bedeutender Wettbewerbe zusammen. Ihr Repertoire reicht vom Barock bis zur
             zeitgenössischen Musik; zudem spielt sie Cembalo. Seit 2013 unterrichtet sie an der Hochschule
             für Musik und Theater Hamburg.
+          </p>
+        `
+      },
+
+      "antonio-di-dedda": {
+        name: "Antonio Di Dedda",
+        bio: `
+          <p>
+            Antonio Di Dedda, 1992 in Mailand geboren, begann seine musikalische Ausbildung früh am Klavier
+            und an der Orgel. Er studierte am Conservatorio di Foggia bei Rossella Di Chio, Francesco Di
+            Lernia und Luca Scandali und setzte seine Ausbildung an der Hochschule für Musik und Theater
+            Hamburg fort, wo Pieter van Dijk, Evgeni Koroliov und Anna Vinnitskaya zu seinen prägenden
+            Lehrern wurden.
+          </p>
+          <p>
+            Meisterkurse bei Elisso Virsaladze ergänzten seine künstlerische Entwicklung. Di Dedda gewann
+            zahlreiche Klavier- und Orgelwettbewerbe, darunter den Schumann-Sonderpreis in Zwickau und
+            Auszeichnungen beim Tariverdiev-Orgelwettbewerb. Als Solist konzertierte er in vielen
+            europäischen Ländern sowie in Israel, Russland und China; Rundfunkaufnahmen entstanden u. a. für
+            Radio Vatikan und NDR Kultur.
+          </p>
+          <p>
+            Seit 2024 ist er Professor für Orgel an der Hochschule für Musik und Theater Hamburg.
           </p>
         `
       }
